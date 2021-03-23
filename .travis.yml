@@ -16,7 +16,7 @@ install:
  - npm install
 
 script:
- - npm run build:git
+ - npm run build
 
 deploy:
   provider: pages
@@ -24,7 +24,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
-    branch: master
+    branch: main
 
 notifications:
   webhooks: https://www.travisbuddy.com
