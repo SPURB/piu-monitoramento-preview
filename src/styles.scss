@@ -1,0 +1,27 @@
+@import "./scss/variables";
+@import "./scss/mapa";
+@import "./scss/sumario";
+@import "./scss/ficha";
+@import "./scss/_conversor";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.app {
+	max-width: 960px;
+	margin: auto;
+	font-family: 'Poppins', sans-serif;
+	#mapa, #sumario {
+		opacity: 1;
+		transition: 1s ease-in opacity
+	}
+	&--loading {
+		#mapa, #sumario {
+			opacity: 0;
+		}
+	}
+}
+
+@media (max-width: 960px) {
+	.app {
+		margin: 0 3%;
+	}
+}
