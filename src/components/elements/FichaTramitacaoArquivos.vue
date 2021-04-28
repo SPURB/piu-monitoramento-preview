@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import Commons from '../../commons/index'
 export default {
 		name: 'FichaTramitacaoArquivos',
 		props: {
@@ -41,11 +42,11 @@ export default {
 		},
 		setFilename ({ data, documento, evento }) {
 			return `${
-				data && data !== ''
-					? data
+				Commons.parseDate(data) && Commons.parseDate(data) !== ''
+					? Commons.parseDate(data)
 					: ''
 				}${
-					data && evento ? ' - ' : ''
+					Commons.parseDate(data) && evento ? ' - ' : ''
 				}${
 				evento && evento !== '' && evento !== '0'
 					? evento 

@@ -34,7 +34,7 @@
 				:areaTotal="projeto.areaTotal"
 			/>
 			<div class="tramitacao">
-				<h4>Tramitacao<span>Última atualização <strong>{{ projeto.ultimaAtualizacao }}</strong></span></h4>
+				<h4>Tramitacao<span>Última atualização <strong>{{ ultimaAtualizacao }}</strong></span></h4>
 				<ficha-tramitacao
 					:clickedId="clickedId"
 					:idTramitacao="1"
@@ -163,6 +163,7 @@
 import FichaSumario from './elements/FichaSumario.vue'
 import FichaAspectos  from './elements/FichaAspectos.vue'
 import FichaTramitacao from './elements/FichaTramitacao.vue'
+import Commons from '../commons/index'
 
 import { http } from '../api'
 
@@ -256,6 +257,9 @@ export default {
 				.sort((a, b) => a.id === 8 ? -1 : 1)
 
 			return ordered.concat({ id: 0, nome:'' })
+		},
+		ultimaAtualizacao () {
+			return Commons.parseDate(this.projeto.ultimaAtualizacao)
 		}
 	},
 	methods: {

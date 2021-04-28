@@ -21,6 +21,8 @@
 
 <script>
 import FichaTramitacaoArquivos from './FichaTramitacaoArquivos.vue'
+import Commons from '../../commons/index'
+
 export default {
 	name: 'FichaTramitacao',
 	components: {
@@ -74,14 +76,14 @@ export default {
 			}
 
 			else if (isEmpty(primeiro) && !isEmpty(ultimo)) {
-				return primeiro
+				return Commons.parseDate(primeiro)
 			}
 
 			else if (!isEmpty(primeiro) && isEmpty(ultimo)) {
-				return ` - ${ultimo}`
+				return ` - ${Commons.parseDate(ultimo)}`
 			}
 			else {
-				return  `${primeiro} — ${ultimo}`
+				return  `${Commons.parseDate(primeiro)} — ${Commons.parseDate(ultimo)}`
 			}
 		},
 		arquivosPorGrupos () {
